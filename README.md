@@ -16,11 +16,16 @@ ssh hana@davew-saphana.eastus.cloudapp.azure.com
 nsg rules changed to allow 39017 and 39041 (priority 2711)
 
 
-from jdbc:  
-jdbc:sap://<ip_address>:39017/?databaseName=<database_name>
-jdbc:sap://<ip_address>:39041/?databaseName=<tenant_name>
+SYSTEM pwd:  adfADFADFer4545!!!
+## from jdbc:  
+jdbc:sap://davew-saphana.eastus.cloudapp.azure.com:39017/?databaseName=SYSTEMDB
+jdbc:sap://davew-saphana.eastus.cloudapp.azure.com:39041/?databaseName=HXE
 
-from vscode:
+## from vscode:
+extension:  sap hana driver for SQLTools
+click SQLTools on the left
 
-...or install hana studio
+
+## ...or install hana studio
+you can use my sapid
 
