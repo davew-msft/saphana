@@ -1,0 +1,22 @@
+{
+    "sqltools.connections": [
+        {
+            "connectionTimeout": 30,
+            "hanaOptions": {
+                "encrypt": false,
+                "sslValidateCertificate": false,
+                "sslCryptoProvider": "openssl"
+            },
+            "previewLimit": 50,
+            "driver": "SAPHana",
+            "name": "docker",
+            "server": "davew-saphana.eastus.cloudapp.azure.com",
+            "port": 39041,
+            "database": "SYSTEM",
+            "username": "SYSTEM",
+            "password": "adfADFADFer4545!!!",
+            "group": "cgroup"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

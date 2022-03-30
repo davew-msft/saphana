@@ -25,7 +25,29 @@ jdbc:sap://davew-saphana.eastus.cloudapp.azure.com:39041/?databaseName=HXE
 extension:  sap hana driver for SQLTools
 click SQLTools on the left
 
+![](./img/conn.png)
+
 
 ## ...or install hana studio
 you can use my sapid
 
+
+
+## sample queries
+select * from "SYS"."M_DATABASES"
+select * from tables
+
+
+CREATE SCHEMA MTC;
+
+CREATE	 COLUMN TABLE MTC.FooBar
+(        ELEMENT CHAR(1),			
+       PRIMARY KEY (ELEMENT)
+);			
+INSERT INTO MTC.FooBar VALUES ('F');
+INSERT INTO MTC.FooBar VALUES ('U');			
+INSERT INTO MTC.FooBar VALUES ('B');			
+INSERT	INTO MTC.FooBar VALUES ('A');			
+INSERT	INTO MTC.FooBar VALUES ('R');
+
+select * from MTC.Foobar
