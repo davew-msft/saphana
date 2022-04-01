@@ -25,6 +25,8 @@ jdbc:sap://davew-saphana.eastus.cloudapp.azure.com:39041/?databaseName=HXE
 extension:  sap hana driver for SQLTools
 click SQLTools on the left
 
+mtc/Password01
+
 ![](./img/conn.png)
 
 
@@ -38,16 +40,23 @@ select * from "SYS"."M_DATABASES"
 select * from tables
 
 
-CREATE SCHEMA MTC;
 
-CREATE	 COLUMN TABLE MTC.FooBar
-(        ELEMENT CHAR(1),			
-       PRIMARY KEY (ELEMENT)
-);			
-INSERT INTO MTC.FooBar VALUES ('F');
-INSERT INTO MTC.FooBar VALUES ('U');			
-INSERT INTO MTC.FooBar VALUES ('B');			
-INSERT	INTO MTC.FooBar VALUES ('A');			
-INSERT	INTO MTC.FooBar VALUES ('R');
+
+create table mtc.foobar (element char(1))		
+INSERT INTO mtc.foobar VALUES ('F');
+INSERT INTO mtc.foobar VALUES ('U');			
+INSERT INTO mtc.foobar VALUES ('B');			
+INSERT	INTO mtc.foobar VALUES ('A');			
+INSERT	INTO mtc.foobar VALUES ('R');
 
 select * from MTC.Foobar
+
+
+## change password
+
+* ssh to vm
+* docker exec to container
+* hdbsql -i 90 -d SYSTEMDB -u SYSTEM
+* alter system stop database HXE
+* ALTER USER SYSTEM PASSWORD Password01
+* ALTER SYSTEM START DATABASE HXE
