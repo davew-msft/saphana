@@ -1,5 +1,7 @@
 * [setup steps](./SAPHANA-setup.md)
 
+* [load tpc-ds data](./tpc.md)
+
 ## Connecting
 
 azure sub:  davew-shared

@@ -41,7 +41,8 @@ mkdir -p ~/hanadata
 
 cat <<EOF >> ~/hanadata/hana.json
 {
-"master_password" : "adfADFADFer4545!!!"
+"master_password" : "Password01",
+"default_tenant_system_user_password" : "Password01"
 }
 EOF
 
@@ -50,22 +51,27 @@ sudo chmod 777 ~/hanadata
 sudo chmod 777 ~/hanadata/hana.json
 sudo chown 12000:79 ~/hanadata/hana.json
 
-sudo docker pull store/saplabs/hanaexpress:2.00.057.00.20220119.1
+# sudo docker pull store/saplabs/hanaexpress:2.00.057.00.20220119.1
+sudo docker pull store/saplabs/hanaexpressxsa:2.00.057.00.20220119.1
 
 sudo docker run \
     -p 39013:39013 \
-    -p 39017:39017 \
+    -p 39015:39015 \
     -p 39041-39045:39041-39045 \
     -p 1128-1129:1128-1129 \
     -p 59013-59014:59013-59014 \
+    -p 39030-39033:39030-39033 \
+    -p 51000-51060:51000-51060 \
+    -p 53075:53075 \
+    -h hxehost \ 
     -v ~/hanadata:/hana/mounts \
     --ulimit nofile=1048576:1048576 \
     --sysctl kernel.shmmax=1073741824 \
-    --sysctl net.ipv4.ip_local_port_range='40000 60999' \
+    --sysctl net.ipv4.ip_local_port_range='60000 65535' \
     --sysctl kernel.shmmni=4096 \
     --sysctl kernel.shmall=8388608 \
     --name saphana \
-    store/saplabs/hanaexpress:2.00.057.00.20220119.1 \
+    store/saplabs/hanaexpressxsa:2.00.057.00.20220119.1 \
     --passwords-url file:///hana/mounts/hana.json \
     --agree-to-sap-license
 
